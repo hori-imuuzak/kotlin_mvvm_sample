@@ -1,8 +1,8 @@
 project.ext {
     support = "1.0.0"
-    arch = "2.0.0"
-    retrofit = "2.0.2"
-    moshi = "1.5.0"
+    arch = "2.1.0"
+    retrofit = "2.6.0"
+    moshi = "1.8.0"
     dagger_version = "2.15"
 }
 
@@ -57,6 +57,7 @@ dependencies {
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$project.arch"
     implementation "androidx.lifecycle:lifecycle-runtime:$project.arch"
     implementation "androidx.lifecycle:lifecycle-extensions:$project.arch"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$project.arch"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$project.retrofit"

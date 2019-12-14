@@ -7,10 +7,10 @@ import retrofit2.http.Path
 
 interface GitHubService {
     // 一覧
-    @GET("/users/{user}/repos")
+    @GET("users/{user}/repos")
     suspend fun getProjectList(@Path("user") user: String): Response<List<Project>>
 
     // 詳細
-    @GET("/repos/{user}/{reponame}")
+    @GET("repos/{user}/{reponame}")
     suspend fun getProjectDetail(@Path("user") user: String, @Path("reponame") reponame: String): Response<Project>
 }
