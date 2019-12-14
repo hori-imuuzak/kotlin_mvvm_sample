@@ -2,6 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="isLoading"
+            type="boolean" />
+
+        <variable
+            name="projectViewModel"
+            type="jp.imuuzak.kotin_mvvm_sample.viewmodel.ProjectDetailViewModel" />
+    </data>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,7 +24,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/loading_project"
             android:textAlignment="center"
-            app:visibleGone="@{false}" />
+            app:visibleGone="@{!isLoading}" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +35,7 @@
             android:orientation="vertical"
             android:padding="5dp"
             android:paddingTop="@dimen/activity_vertical_margin"
-            app:visibleGone="@{true}">
+            app:visibleGone="@{isLoading}">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -38,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/project_name"
                 android:paddingBottom="5dp"
-                android:text=""
+                android:text="@{projectViewModel.project.name}"
                 android:textAlignment="center"
                 android:textSize="@dimen/project_header1"
                 android:textStyle="bold" />
@@ -48,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/project_description"
-                android:text=""
+                android:text="@{projectViewModel.project.description}"
                 android:textSize="@dimen/project_header2" />
 
 
@@ -57,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/project_language"
-                android:text="@{String.format(@string/languages, '1')}"
+                android:text="@{String.format(@string/languages, projectViewModel.project.language)}"
                 android:textSize="@dimen/project_text" />
 
             <TextView
@@ -65,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/project_watchers"
-                android:text="@{String.format(@string/watchers, '1')}"
+                android:text="@{String.format(@string/watchers, projectViewModel.project.watchers)}"
                 android:textSize="@dimen/project_text" />
 
             <TextView
@@ -73,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/open_issues"
-                android:text="@{String.format(@string/openIssues, '1')}"
+                android:text="@{String.format(@string/openIssues, projectViewModel.project.open_issues)}"
                 android:textSize="@dimen/project_text" />
 
 
@@ -82,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="Created At"
-                android:text="@{String.format(@string/created_at, '1')}"
+                android:text="@{String.format(@string/created_at, projectViewModel.project.created_at)}"
                 android:textSize="@dimen/project_text" />
 
             <TextView
@@ -90,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="Updated At"
-                android:text="@{String.format(@string/updated_at, '1')}"
+                android:text="@{String.format(@string/updated_at, projectViewModel.project.updated_at)}"
                 android:textSize="@dimen/project_text" />
 
             <TextView
@@ -98,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/open_issues"
-                android:text="@{String.format(@string/clone_url, '1')}"
+                android:text="@{String.format(@string/clone_url, projectViewModel.project.clone_url)}"
                 android:textSize="@dimen/project_text" />
 
         </LinearLayout>
